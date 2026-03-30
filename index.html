@@ -85,6 +85,31 @@
       text-align: center;
     }
 
+    .resume-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #38bdf8;
+      color: #0f172a;
+      padding: 12px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+.resume-btn.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resume-btn:hover {
+  background: #0ea5e9;
+}
     a {
       color: #38bdf8;
       text-decoration: none;
@@ -93,6 +118,8 @@
     a:hover {
       text-decoration: underline;
     }
+
+    
 
   </style>
 </head>
@@ -233,6 +260,24 @@
     <p>© 2026 Sourabh Singh</p>
   </div>
 
+  <!-- FLOATING RESUME BUTTON -->
+<a href="resume.pdf" download class="resume-btn" id="resumeBtn">
+  ⬇ Resume
+</a>
+
+
+  <script>
+  const resumeBtn = document.getElementById("resumeBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      resumeBtn.classList.add("show");
+    } else {
+      resumeBtn.classList.remove("show");
+    }
+  });
+</script>
+  
 </div>
 
 </body>
